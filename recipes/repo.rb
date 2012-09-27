@@ -26,8 +26,9 @@ def folsom_release
   when "ubuntu"
     apt_repository "ceph" do
       uri node["openstack"]["folsom"]["ubuntu"]["repo"]
-      distribution node['lsb']['codename']
-      components ["main"]
+      distribution node["openstack"]["folsom"]["ubuntu"]["dist"]
+      components node["openstack"]["folsom"]["ubuntu"]["components"]
+      keyserver node["openstack"]["folsom"]["ubuntu"]["keyserver"]
       key node["openstack"]["folsom"]["ubuntu"]["key"]
       action :add
     end # apt_repository
