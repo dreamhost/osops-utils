@@ -183,6 +183,7 @@ module RCB
       Chef::Log.warn("Cannot find #{server}/#{service} for role #{role}")
       nil
     elsif result.length > 1
+      Chef::Log.info("Found more than one node when searching for #{server}/#{service} for role #{role}, assuming loadbalanced")
       get_lb_endpoint(server,service)
     else
       get_bind_endpoint(server, service, result[0])
