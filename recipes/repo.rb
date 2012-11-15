@@ -24,7 +24,7 @@ end
 def folsom_release
   case node[:platform]
   when "ubuntu"
-    apt_repository "ceph" do
+    apt_repository "openstack-folsom" do
       uri node["openstack"]["folsom"]["ubuntu"]["repo"]
       distribution node["openstack"]["folsom"]["ubuntu"]["dist"]
       components node["openstack"]["folsom"]["ubuntu"]["components"]
